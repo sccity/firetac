@@ -8,7 +8,6 @@ class Router
 
     private function addRoute($route, $controller, $action, $method)
     {
-
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
     }
 
@@ -25,16 +24,22 @@ class Router
     public function dispatch()
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
-        $method =  $_SERVER['REQUEST_METHOD'];
+        $method = $_SERVER['REQUEST_METHOD'];
 
-        if (array_key_exists($uri, $this->routes[$method])) {
-            $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
+        try {
+            if (isset($this->routes[$method][$uri])) {
+                $controller = $this->routes[$method][$uri]['controller'];
+                $action = $this->routes[$method][$uri]['action'];
 
-            $controller = new $controller();
-            $controller->$action();
-        } else {
-            throw new \Exception("No route found for URI: $uri");
+                $controllerInstance = new $controller();
+                $controllerInstance->$action();
+            } else {
+                throw new \Exception("No route found for URI: $uri");
+            }
+        } catch (\Exception $e) {
+            // Redirect to a custom error page
+            http_response_code(404); // Set HTTP status code to 404
+            include __DIR__ . '/Views/error.php'; // Custom error page
         }
     }
 }
