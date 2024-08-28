@@ -1,4 +1,76 @@
-/* resources/css/styles.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import Tailwind's base, components, and utilities */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Styles */
+.input-display {
+    @apply mb-4 text-center;
+}
+
+#input-box {
+    @apply bg-gray-900 text-white p-2 rounded;
+    @apply w-32; /* Reduced width for input box */
+    font-size: 2rem; /* Larger font size for dots */
+    min-height: 3rem; /* Ensure enough height for dots */
+}
+
+button {
+    @apply font-sans text-base p-2 cursor-pointer rounded transition-transform duration-150;
+}
+
+button:active {
+    @apply transform scale-95;
+}
+
+/* Button Styles */
+.button.letter {
+    @apply bg-blue-500 text-white;
+}
+
+.button.letter:hover {
+    @apply bg-blue-700;
+}
+
+.button.number {
+    @apply bg-green-500 text-white;
+}
+
+.button.number:hover {
+    @apply bg-green-700;
+}
+
+#clear-button {
+    @apply bg-red-500 text-white;
+}
+
+#clear-button:hover {
+    @apply bg-red-700;
+}
+
+#submit-button {
+    @apply bg-blue-500 text-white;
+}
+
+#submit-button:hover {
+    @apply bg-blue-700;
+}
+
+/* Grid layout for touch screen */
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.w-1-2 {
+    width: 50%;
+}
+
+.login-container {
+    @apply max-w-md; /* Reduce the width of the pinpad */
+}
+
+@media (max-width: 600px) {
+    .button {
+        @apply text-sm p-1; /* Smaller buttons on small screens */
+    }
+}

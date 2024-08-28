@@ -12,5 +12,7 @@
             "email": "rlevsey@santaclarautah.gov"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
