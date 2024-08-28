@@ -1,6 +1,7 @@
 {
   "name": "firetac",
   "version": "1.0.0",
+  "description": "A project for FireTAC",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,8 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "tailwindcss": "^3.4.10"
-  }
+  },
+  "devDependencies": {}
 }

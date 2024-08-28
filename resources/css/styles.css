@@ -74,3 +74,28 @@ button:active {
         @apply text-sm p-1; /* Smaller buttons on small screens */
     }
 }
+
+/* Table Styling */
+table {
+    @apply min-w-full border-collapse; /* Full width and collapse borders */
+}
+
+thead {
+    @apply bg-dark-header text-white; /* Header background and text color */
+}
+
+th, td {
+    @apply py-2 px-4 border-b border-dark-header; /* Padding and border for table cells */
+}
+
+tbody tr:nth-child(even) {
+    @apply bg-dark-bg; /* Alternate row background color */
+}
+
+tbody tr:nth-child(odd) {
+    @apply bg-gray-800; /* Alternate row background color */
+}
+
+tbody tr:hover {
+    @apply bg-dark-hover; /* Hover effect for rows */
+}
